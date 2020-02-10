@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dyuthi Valentines Day</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/logo_dyuthi.png' %}"/>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+</head>
+
+<style type="text/css">
+    .reg-btn {
+        background-color: rgb(255, 24, 92);
+    }
+
+    .reg-btn:hover{
+        background-color: rgba(191, 21, 74, 0.95);
+    }
+</style>
+
+<body id="page-top">
+    <header class="d-flex masthead" style="background-image:url('{% static 'img/best-time-to-buy-roses.jpg' %}'); height: 100%; width: 100%">
+        <div class="container my-auto text-center">
+            <h1 class="mb-1" style="color: rgba(194,231,34,0.8);">GEC Valentine</h1>
+            <h3 class="mb-5" style="color: rgba(191,191,191,0.88); font-family: 'Montserrat', sans-serif;">Find Your Love</h3>
+            <a style="color: rgba(247,247,247,0.76);" class="btn btn-xl js-scroll-trigger reg-btn" role="button" href="{% url 'form' %}">Register Now</a>
+            <div class="overlay"></div>
+        </div>
+    </header>
+{#    <footer class="footer text-center">#}
+{#        <div class="container">#}
+{#            <ul class="list-inline">#}
+{#                <li class="list-inline-item">&nbsp;<a class="text-white social-link rounded-circle" href="#"><i class="icon-social-twitter"></i></a></li>#}
+{#            </ul>#}
+{#        </div><a class="js-scroll-trigger scroll-to-top rounded" href="#page-top"><i class="fa fa-angle-up"></i></a>#}
+{#    </footer>#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="{% static 'js/stylish-portfolio.js' %}"></script>
+</body>
+
+</html>

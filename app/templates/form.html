@@ -1,0 +1,175 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dyuthi Valentines Day</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/logo_dyuthi.png' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/Responsive-Form-1.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/Responsive-Form.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/styles.css' %}">
+
+</head>
+<style type="text/css">
+    .reg-btn {
+        background-color: rgb(255, 24, 92);
+    }
+
+    .reg-btn:hover{
+        background-color: rgba(191, 21, 74, 0.95);
+    }
+
+
+</style>
+
+
+<body style="background-image: url('{% static 'img/best-time-to-buy-roses.jpg' %}');" >
+    <div class="container">
+        <div>
+            <form>
+                {% csrf_token %}
+                <div class="mt-5 form-group">
+                    <div id="formdiv">
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Name </strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <input id="name" class="input_content" type="text" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="name" placeholder="Name" maxlength = "32">
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;margin-top:-16px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Gender </strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <select id="gender" class="input_content" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="gender">
+                                    <optgroup label="This is a group">
+                                        <option value="1" selected="">Male</option>
+                                        <option value="0">Female</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Age</strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <input id="age" class=" input_content" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="birthDate" type="number" min="17" max="40">
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Date of Birth</strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <input id="dob" class="input_content" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="birthDate" type="date">
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Native Place</strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <input id="native_place" class="input_content" type="text" maxlength = "60" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="birthPlace" placeholder="Place">
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Interests</strong></p>
+                            </div>
+
+                            <div class="col-md-10 offset-md-1">
+                                <div class="boxes">
+                                    <div class="myStyle">
+                                        <input type="checkbox" id="box-1">
+                                        <label for="box-1">Sustainable typewriter cronut</label>
+                                    </div>
+                                    <div class="myStyle">
+                                        <input type="checkbox" id="box-2">
+                                        <label for="box-2">Sustainable typewriter </label>
+                                    </div>
+                                    <div class="myStyle">
+                                        <input type="checkbox" id="box-3">
+                                        <label for="box-3">Sustainable  cronut</label>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Phone Number</strong></p>
+                            </div>
+                            <div class=" col-md-10 offset-md-1"><input id="phmob" class="input_content" type="text" maxlength = "13" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" placeholder="+91"></div>
+                        </div>
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Remarks </strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1"><textarea id="remarks" class="input_content" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" placeholder="Remarks"  maxlength = "160"></textarea></div>
+                        </div>
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-12 col-md-4 m-auto d-block">
+{#                                <button class="btn reg-btn btn-lg" style="color: rgba(247,247,247,0.76);" type="reset">Clear </button>#}
+                                <button id="submit_btn" class="btn reg-btn" style="color: rgba(247,247,247,0.76); width: 80%;" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+<script type="text/javascript">
+    $('#submit_btn').on('click', function (e) {
+        e.preventDefault();
+        var name = $('#name').val();
+        var gender = $('#gender').val();
+
+        var age = $('#age').val();
+        var dob = $('#dob').val();
+        var native_place = $('#native_place').val();
+        var phmob = $('#phmob').val();
+        var remarks = $('#remarks').val();
+
+//        alert(name + gender + age + dob + native_place + phmob + remarks);
+
+        var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+alert('here');
+                $.ajax({
+                    url: '/form/',
+                    type: 'POST',
+                    data: {
+                        'csrfmiddlewaretoken': csrftoken,
+                        'name': name,
+                        'gender': gender.toString(),
+                        'age':age,
+                        'dob':dob,
+                        'native_place': native_place,
+                        'phmob': phmob,
+                        'remarks': remarks
+                    },
+                    error: function () {
+                        alert('Could not connect to server...');
+                    },
+                    success: function (response_ds) {
+                        alert(response_ds);
+                        {#$('#v_' + id).text(response_ds);#}
+                    }
+                });
+
+    });
+</script>
+
+</html>
