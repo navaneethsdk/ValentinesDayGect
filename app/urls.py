@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('form/', views.form, name='form'),
+    path('profile/<slug:foo>', views.getProfile, name="profile")
 ]
 
 if settings.DEBUG:

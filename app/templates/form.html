@@ -86,20 +86,12 @@
 
                             <div class="col-md-10 offset-md-1">
                                 <div class="boxes">
-                                    <div class="myStyle">
-                                        <input type="checkbox" id="box-1">
-                                        <label for="box-1">Sustainable typewriter cronut</label>
-                                    </div>
-                                    <div class="myStyle">
-                                        <input type="checkbox" id="box-2">
-                                        <label for="box-2">Sustainable typewriter </label>
-                                    </div>
-                                    <div class="myStyle">
-                                        <input type="checkbox" id="box-3">
-                                        <label for="box-3">Sustainable  cronut</label>
-                                    </div>
-
-
+                                    {% for i in data %}
+                                        <div class="myStyle">
+                                            <input id="{{ i.interets }}" type="checkbox" class="interestbox" value="{{ i.interets }}">
+                                            <label for="{{ i.interets }}">{{ i.interets }}</label>
+                                        </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -109,6 +101,14 @@
                                 <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Phone Number</strong></p>
                             </div>
                             <div class=" col-md-10 offset-md-1"><input id="phmob" class="input_content" type="text" maxlength = "13" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" placeholder="+91"></div>
+                        </div>
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>KTU Reg No </strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <input id="reg_no" class="input_content" type="text" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="name" placeholder="KTU Reg No" maxlength = "11">
+                            </div>
                         </div>
                         <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
                             <div class="col-md-8 offset-md-1">
@@ -142,7 +142,23 @@
         var native_place = $('#native_place').val();
         var phmob = $('#phmob').val();
         var remarks = $('#remarks').val();
+        var interests_person = "";
+        var reg_no = $('#reg_no').val();
 
+
+        $('.interestbox').each(function(){
+    //if statement here
+    // use $(this) to reference the current div in the loop
+    //you can try something like...
+        if ($(this).is(":checked")){
+            interests_person += '$$' + $(this).val().toString();
+        }
+    {#if(condition){#}
+    {##}
+    {# }#}
+
+
+ });
 //        alert(name + gender + age + dob + native_place + phmob + remarks);
 
         var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
@@ -158,14 +174,15 @@ alert('here');
                         'dob':dob,
                         'native_place': native_place,
                         'phmob': phmob,
-                        'remarks': remarks
+                        'remarks': remarks,
+                        'interests':interests_person,
+                        'reg_no': reg_no
                     },
                     error: function () {
                         alert('Could not connect to server...');
                     },
                     success: function (response_ds) {
                         alert(response_ds);
-                        {#$('#v_' + id).text(response_ds);#}
                     }
                 });
 

@@ -1,0 +1,125 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dyuthi Valentines Day</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/logo_dyuthi.png' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/Responsive-Form-1.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/Responsive-Form.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/styles.css' %}">
+
+</head>
+<style type="text/css">
+    .reg-btn {
+        background-color: rgb(255, 24, 92);
+    }
+
+    .reg-btn:hover{
+        background-color: rgba(191, 21, 74, 0.95);
+    }
+
+
+</style>
+
+
+<body style="background-image: url('{% static 'img/best-time-to-buy-roses.jpg' %}');" >
+    <div class="container">
+        <div>
+            <form>
+                {% csrf_token %}
+                <div class="mt-5 form-group">
+                    <div id="formdiv">
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Name </strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <input id="name" class="input_content" type="text" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="name" value="{{ data.name }}" maxlength = "32" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Gender </strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <input id="gender" class="input_content" type="text" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="name" value="{{ data.gender }}" maxlength = "32" readonly>
+                            </div>
+                        </div>
+                                                <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Interests </strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <textarea id="inter" class="input_content" type="" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="name" maxlength = "32" readonly></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Age</strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <input id="age" class="input_content" type="text" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="name" value="{{ data.age }}" maxlength = "32" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Date of Birth</strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <input id="dob" class="input_content" type="text" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="name" value="{{ data.dob }}" maxlength = "32" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Native Place</strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <input id="native_place" class="input_content" type="text" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="name" value="{{ data.native_place }}" maxlength = "32" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Remark</strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <input id="remark" class="input_content" type="text" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="name" value="{{ data.remarks }}" maxlength = "32" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+                            <div class="col-md-8 offset-md-1">
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Unique Id</strong></p>
+                            </div>
+                            <div class="col-md-10 offset-md-1">
+                                <input id="native_place" class="input_content" type="text" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="name" value="{{ data.unique_id }}" maxlength = "32" readonly>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <input id="inter_data" type="text" style="display: none;" value="{{ data.interests }}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var data = $('#inter_data').val();
+        data = data.split('$$');
+        data.shift();
+        data = data.join(', ');
+        // alert(data);
+        $('#inter').val(data);
+    });
+
+</script>
+
+</html>
