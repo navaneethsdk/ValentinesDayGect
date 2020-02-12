@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/Responsive-Form.css' %}">
 </head>
 
 <style type="text/css">
@@ -26,11 +28,19 @@
 
 <body id="page-top">
     <header class="d-flex masthead" style="background-image:url('{% static 'img/best-time-to-buy-roses.jpg' %}'); height: 100%; width: 100%">
+        {% csrf_token %}
         <div class="container my-auto text-center">
             <h1 class="mb-1" style="color: rgba(194,231,34,0.8);">GEC Valentine</h1>
             <h3 class="mb-5" style="color: rgba(191,191,191,0.88); font-family: 'Montserrat', sans-serif;">Find Your Love</h3>
             <a style="color: rgba(247,247,247,0.76);" class="btn btn-xl js-scroll-trigger reg-btn" role="button" href="{% url 'form' %}">Register Now</a><br><br>
 {#            <a style="color: rgba(247,247,247,0.76);" class="btn btn-xl js-scroll-trigger reg-btn" role="button" href="{% url 'form' %}">See Your Profile</a>#}
+           <h6 class="mt-2" style="color: rgba(191,191,191,0.88); font-family: 'Montserrat', sans-serif;">View profile</h6>
+            <div class="input-group col-lg-4 mx-auto">
+              <input type="text" id="profile_input" style="background-color: rgba(84,84,84,0.8); color: #fff;" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Enter your registered phone number">
+              <div class="input-group-append">
+                <span id="span_click" class="input-group-text" style="background-color: rgba(84,84,84,0.8); color: #fff;"><i class="fa fa-arrow-right"></i></span>
+              </div>
+            </div>
             <div class="overlay"></div>
         </div>
     </header>
@@ -46,5 +56,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="{% static 'js/stylish-portfolio.js' %}"></script>
 </body>
+<script type="text/javascript">
+
+$(document).keypress(function(event){
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+        {#alert('You pressed a "enter" key in somewhere');#}
+         $('#span_click').click();
+    }
+});
+
+    $('#span_click').on('click', function (e) {
+        e.preventDefault();
+        var data = $('#profile_input').val();
+
+        var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+{#alert('here');#}
+                $.ajax({
+                    url: '/',
+                    type: 'POST',
+                    data: {
+                        'csrfmiddlewaretoken': csrftoken,
+                        'profile': data
+                    },
+                    error: function () {
+                        alert('Could not connect to server...');
+                    },
+                    success: function (response_ds) {
+                            {#alert(response_ds);#}
+                        if (response_ds === 'failed'){
+                            alert('No user profile. Register Now !!!');
+                        } else {
+                            window.location.href="/profile/"+data;
+                        }
+                    }
+                });
+
+    });
+</script>
+
+
 
 </html>

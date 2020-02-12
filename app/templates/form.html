@@ -163,7 +163,7 @@
 
         var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
 {#alert('here');#}
-        alert(interests_person);
+{#        alert(interests_person);#}
                 $.ajax({
                     url: '/form/',
                     type: 'POST',
@@ -183,7 +183,13 @@
                         alert('Could not connect to server...');
                     },
                     success: function (response_ds) {
-                        alert(response_ds);
+                        //alert(response_ds);
+                        if (response_ds === "Unsuccessful") {
+                            alert("User exist or you have not entered all data");
+                        } else {
+                            alert("Successfully Registered");
+                            window.location.href="/";
+                        }
                     }
                 });
 

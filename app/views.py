@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 import datetime
 from .models import *
 # Create your views here.
@@ -8,7 +8,15 @@ import string
 
 
 def home(request):
-    return render(request, 'index.html')
+    if request.method == "GET":
+        return render(request, 'index.html')
+    else:
+        profile = request.POST['profile']
+        try:
+            e = RegisteredMembers.objects.get(phone_no=profile)
+            return HttpResponse('success')
+        except:
+            return HttpResponse('failed')
 
 
 def form(request):
@@ -17,46 +25,49 @@ def form(request):
         data = Interests.objects.all()
         return render(request, 'form.html', {'data': data})
     elif request.method == "POST":
-        name = request.POST['name']
-        if request.POST['gender'] == "1":
-            gender = True
-        else:
-            gender = False
-        age = request.POST['age']
-        dob = request.POST['dob']
-        dob = datetime.strptime(dob, '%Y-%m-%d')
-        native_place = request.POST['native_place']
-        phmob = request.POST['phmob']
-        remarks = request.POST['remarks']
-        interests = request.POST['interests']
-        ktu_reg_no = request.POST['reg_no']
-        flag = False
-        # try:
-        #     e = RegisteredMembers.objects.get(ktu_reg_no=ktu_reg_no)
+        try:
+            name = request.POST['name']
+            if request.POST['gender'] == "1":
+                gender = True
+            else:
+                gender = False
+            age = request.POST['age']
+            dob = request.POST['dob']
+            dob = datetime.strptime(dob, '%Y-%m-%d')
+            native_place = request.POST['native_place']
+            phmob = request.POST['phmob']
+            remarks = request.POST['remarks']
+            interests = request.POST['interests']
+            ktu_reg_no = request.POST['reg_no']
+            flag = False
+            # try:
+            #     e = RegisteredMembers.objects.get(ktu_reg_no=ktu_reg_no)
 
-        # except:
-        e = RegisteredMembers.objects.filter(ktu_reg_no=ktu_reg_no).count()
-        f = RegisteredMembers.objects.filter(name=name).count()
-        g = RegisteredMembers.objects.filter(phone_no=phmob).count()
-        # print(e)
-        if e <= 0 and f <= 0 and g <= 0:
-            event = RegisteredMembers.objects.create(
-                ktu_reg_no=ktu_reg_no,
-                name=name,
-                gender=gender,
-                age=age, dob=dob,
-                native_place=native_place,
-                phone_no=phmob,
-                # remarks=remarks,
-                unique_id=phmob+randomString(4),
-                interests=interests
-            )
-            event.save()
-            flag = True
-        # print(gender)
-        if flag:
-            return HttpResponse("Success")
-        else:
+            # except:
+            e = RegisteredMembers.objects.filter(ktu_reg_no=ktu_reg_no).count()
+            f = RegisteredMembers.objects.filter(name=name).count()
+            g = RegisteredMembers.objects.filter(phone_no=phmob).count()
+            # print(e)
+            if e <= 0 and f <= 0 and g <= 0:
+                event = RegisteredMembers.objects.create(
+                    ktu_reg_no=ktu_reg_no,
+                    name=name,
+                    gender=gender,
+                    age=age, dob=dob,
+                    native_place=native_place,
+                    phone_no=phmob,
+                    remarks=remarks,
+                    unique_id=phmob+randomString(4),
+                    interests=interests
+                )
+                event.save()
+                flag = True
+            # print(gender)
+            if flag:
+                return HttpResponse("Success")
+            else:
+                return HttpResponse("Unsuccessful")
+        except:
             return HttpResponse("Unsuccessful")
 
 
