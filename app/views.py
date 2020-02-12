@@ -13,7 +13,7 @@ def home(request):
 
 def form(request):
     if request.method == "GET":
-        # analyzer()
+        analyzer()
         data = Interests.objects.all()
         return render(request, 'form.html', {'data': data})
     elif request.method == "POST":
@@ -38,7 +38,7 @@ def form(request):
         e = RegisteredMembers.objects.filter(ktu_reg_no=ktu_reg_no).count()
         f = RegisteredMembers.objects.filter(name=name).count()
         g = RegisteredMembers.objects.filter(phone_no=phmob).count()
-        print(e)
+        # print(e)
         if e <= 0 and f <= 0 and g <= 0:
             event = RegisteredMembers.objects.create(
                 ktu_reg_no=ktu_reg_no,
@@ -47,7 +47,7 @@ def form(request):
                 age=age, dob=dob,
                 native_place=native_place,
                 phone_no=phmob,
-                remarks=remarks,
+                # remarks=remarks,
                 unique_id=phmob+randomString(4),
                 interests=interests
             )
@@ -103,11 +103,16 @@ def analyzer():
             g = int(j[1], 2)
             combine = bin(b & g)
             if combine != bin(0):
-                i[0].pair_unique_id = j[0].unique_id
+                # i[0].pair_unique_id = j[0].unique_id
                 girls_list.remove(j)
-                pair_list.append((i[0].name, j[0].name))
+                pair_list.append((i[0], j[0]))
                 break
     print(pair_list)
+    for i in pair_list:
+        i[0].pair_unique_id = j[0].unique_id
+        j[0].pair_unique_id = i[0].unique_id
+        i[0].save()
+        j[0].save()
 
 
 def randomString(stringLength=10):
@@ -119,3 +124,14 @@ def randomString(stringLength=10):
 def getProfile(request, foo):
     data = RegisteredMembers.objects.get(phone_no=foo)
     return render(request, 'profile.html', {'data': data})
+
+
+def scratchcard(request,foo):
+    event = RegisteredMembers.objects.get(phone_no=foo)
+    data = RegisteredMembers.objects.get(unique_id=event.pair_unique_id)
+    return render(request, 'scratch_card.html', {'data': data})
+
+def pairProfile(request, foo):
+    data = RegisteredMembers.objects.get(phone_no=foo)
+    return render(request, 'pair_profile.html', {'data': data})
+

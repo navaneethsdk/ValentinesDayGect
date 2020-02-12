@@ -104,17 +104,17 @@
                         </div>
                         <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
                             <div class="col-md-8 offset-md-1">
-                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>KTU Reg No </strong></p>
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Reg No </strong></p>
                             </div>
                             <div class="col-md-10 offset-md-1">
-                                <input id="reg_no" class="input_content" type="text" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="name" placeholder="KTU Reg No" maxlength = "11">
+                                <input id="reg_no" class="input_content" type="text" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" name="name" placeholder="Reg No" maxlength = "11">
                             </div>
                         </div>
                         <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
                             <div class="col-md-8 offset-md-1">
-                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Remarks </strong></p>
+                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;color:white"><strong>Deparment & Semester </strong></p>
                             </div>
-                            <div class="col-md-10 offset-md-1"><textarea id="remarks" class="input_content" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" placeholder="Remarks"  maxlength = "160"></textarea></div>
+                            <div class="col-md-10 offset-md-1"><textarea id="remarks" class="input_content" style="margin-left:0px;font-family:Roboto, sans-serif; width: 100%; color: #fff;" placeholder="Dept & Sem"  maxlength = "160"></textarea></div>
                         </div>
                         <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
                             <div class="col-12 col-md-4 m-auto d-block">
@@ -162,7 +162,8 @@
 //        alert(name + gender + age + dob + native_place + phmob + remarks);
 
         var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
-alert('here');
+{#alert('here');#}
+        alert(interests_person);
                 $.ajax({
                     url: '/form/',
                     type: 'POST',

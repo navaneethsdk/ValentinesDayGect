@@ -1,0 +1,70 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pprof</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/ppstyles.css' %}">
+</head>
+<body style="background-image: url('{% static 'img/best-time-to-buy-roses.jpg' %}');">
+        <div class="cards-container">
+
+          <div class="card card-one">
+            <header>
+              <div class="avatar">
+                <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Jhon Doe" />
+              </div>
+            </header>
+
+            <h3>{{ data.name }}</h3>
+            <div class="desc">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit et cupiditate deleniti.
+            </div>
+            <div class="contacts">
+              <a href=""><i class="fa fa-plus"></i></a>
+              <a href=""><i class="fa fa-whatsapp"></i></a>
+              <a href=""><i class="fa fa-envelope"></i></a>
+              <div class="clear"></div>
+            </div>
+
+            <footer>
+              <a href=""><i class="fa fa-facebook"></i></a>
+              <a href=""><i class="fa fa-linkedin"></i></a>
+              <a href=""><i class="fa fa-twitter"></i></a>
+              <a href=""><i class="fa fa-instagram"></i></a>
+            </footer>
+          </div>
+
+          <div class=" card card-two">
+          <header>
+            <div class="avatar">
+              <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="Allison Walker" />
+            </div>
+          </header>
+
+          <h3>Allison Walker</h3>
+          <div class="desc">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit et cupiditate deleniti.
+          </div>
+          <div class="contacts">
+            <a href=""><i class="fa fa-plus"></i></a>
+            <a href=""><i class="fa fa-whatsapp"></i></a>
+            <a href=""><i class="fa fa-envelope"></i></a>
+            <div class="clear"></div>
+          </div>
+
+          <footer>
+            <p>
+              <a href=""><i class="fa fa-facebook"></i></a>
+              <a href=""><i class="fa fa-linkedin"></i></a>
+              <a href=""><i class="fa fa-twitter"></i></a>
+              <a href=""><i class="fa fa-instagram"></i></a>
+            </p>
+          </footer>
+        </div>
+
+          <div class="clear"></div>
+        </div>
+</body>
+</html>

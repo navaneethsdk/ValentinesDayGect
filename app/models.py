@@ -13,10 +13,10 @@ class RegisteredMembers(models.Model):
     blocked = models.BooleanField(default=False, verbose_name="Block this user", help_text="Block this user or not")
     unique_id = models.CharField(blank=False, max_length=15, verbose_name="Unique profile number")
     pair_unique_id = models.CharField(blank=True, max_length=15, verbose_name="Unique profile number of pair")
-    remarks = models.TextField(max_length=161, blank=True, verbose_name="Remarks", help_text="Other things about user")
+    remarks = models.TextField(max_length=161, blank=True, verbose_name="Department & Semester", help_text="Department & Semester")
     dob = models.DateField(blank=False, verbose_name="Date of Birth", default=datetime.now)
     interests = models.TextField(max_length=250, blank=False, default="")
-    ktu_reg_no = models.CharField(max_length=11, verbose_name="KTU Reg No", default="", blank=False)
+    ktu_reg_no = models.CharField(max_length=11, verbose_name="Reg No", default="", blank=False)
 
 
 class Interests(models.Model):
