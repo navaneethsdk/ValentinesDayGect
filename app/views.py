@@ -110,20 +110,22 @@ def analyzer():
     pair_list = []
     for i in boys_list:
         for j in girls_list:
+            print(girls_list)
             b = int(i[1], 2)
             g = int(j[1], 2)
             combine = bin(b & g)
             if combine != bin(0):
                 # i[0].pair_unique_id = j[0].unique_id
                 girls_list.remove(j)
+                print(girls_list)
                 pair_list.append((i[0], j[0]))
                 break
     print(pair_list)
     for i in pair_list:
-        i[0].pair_unique_id = j[0].unique_id
-        j[0].pair_unique_id = i[0].unique_id
+        i[0].pair_unique_id = i[1].unique_id
+        i[1].pair_unique_id = i[0].unique_id
         i[0].save()
-        j[0].save()
+        i[1].save()
 
 
 def randomString(stringLength=10):
@@ -140,7 +142,13 @@ def getProfile(request, foo):
 def scratchcard(request,foo):
     event = RegisteredMembers.objects.get(phone_no=foo)
     data = RegisteredMembers.objects.get(unique_id=event.pair_unique_id)
-    return render(request, 'scratch_card.html', {'data': data})
+    inter = data.interests
+    list_inter = inter.split('$$')
+    inter = ""
+    for i in list_inter[1:]:
+        inter += i + ", "
+    inter = inter[:-2]
+    return render(request, 'scratchcard.html', {'data': data, 'inter': inter})
 
 def pairProfile(request, foo):
     data = RegisteredMembers.objects.get(phone_no=foo)

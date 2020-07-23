@@ -27,11 +27,15 @@
 </style>
 
 <body id="page-top">
-    <header class="d-flex masthead" style="background-image:url('{% static 'img/best-time-to-buy-roses.jpg' %}'); height: 100%; width: 100%">
+    <header class="d-flex masthead mt-0" style="background-image:url('{% static 'img/Valentine.jpg' %}'); height: 100%; width: 100% ">
         {% csrf_token %}
-        <div class="container my-auto text-center">
-            <h1 class="mb-1" style="color: rgba(194,231,34,0.8);">GEC Valentine</h1>
-            <h3 class="mb-5" style="color: rgba(191,191,191,0.88); font-family: 'Montserrat', sans-serif;">Find Your Love</h3>
+        <div class="container my-auto text-center mt-0 ">
+            <div class="mb-5 mt-0">
+               <img style="height:15em;width:21em" src="{% static 'img/Valentine.png' %}" alt="">
+            </div>
+
+{#            <h1 class="mb-1" style="color: rgba(194,231,34,0.8);">GEC Valentine</h1>#}
+{#            <h3 class="mb-5" style="color: rgba(191,191,191,0.88); font-family: 'Montserrat', sans-serif;">Find Your Love</h3>#}
             <a style="color: rgba(247,247,247,0.76);" class="btn btn-xl js-scroll-trigger reg-btn" role="button" href="{% url 'form' %}">Register Now</a><br><br>
 {#            <a style="color: rgba(247,247,247,0.76);" class="btn btn-xl js-scroll-trigger reg-btn" role="button" href="{% url 'form' %}">See Your Profile</a>#}
            <h6 class="mt-2" style="color: rgba(191,191,191,0.88); font-family: 'Montserrat', sans-serif;">View profile</h6>

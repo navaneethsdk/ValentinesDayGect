@@ -6,7 +6,7 @@ from .models import *
 
 @admin.register(RegisteredMembers)
 class RegisteredMemberAdmin(admin.ModelAdmin):
-    list_display = ['name', 'gender', 'age', 'native_place', 'blocked', 'ktu_reg_no']
+    list_display = ['id', 'name', 'gender', 'age', 'native_place', 'blocked', 'ktu_reg_no']
 
 
 @admin.register(Interests)
